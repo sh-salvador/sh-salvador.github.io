@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-shalom-blue: #1458A1;
+    --color-shalom-orange: #FFA814;
+    --color-warm-cream: #FFF3D6;
+    --color-deep-dark: #171C24;
+    --color-white: #FFFFFF;
+  }
+
+  body {
+    background-color: var(--color-white);
+    color: var(--color-deep-dark);
+  }
+}
