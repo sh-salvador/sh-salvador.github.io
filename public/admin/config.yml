@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: sh-salvador/sistema
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  # ----- EVENTOS -----
+  - name: "eventos"
+    label: "Eventos"
+    label_singular: "Evento"
+    folder: "src/content/eventos"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { label: "Horário", name: "time", widget: "string", hint: "Ex: 19h30, 08h às 17h" }
+      - { label: "Local", name: "location", widget: "string" }
+      - { label: "Imagem", name: "image", widget: "image", required: false }
+      - { label: "Descrição", name: "description", widget: "text" }
+      - { label: "Link (opcional)", name: "href", widget: "string", required: false, default: "/programacao" }
+
+  # ----- NOTÍCIAS -----
+  - name: "noticias"
+    label: "Informativo Shalom"
+    label_singular: "Notícia"
+    folder: "src/content/noticias"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Data", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - { label: "Imagem", name: "image", widget: "image", required: false }
+      - { label: "Descrição", name: "description", widget: "text" }
+      - { label: "Link (opcional)", name: "href", widget: "string", required: false, default: "/informativo" }
+
+  # ----- PROGRAMAÇÃO SEMANAL -----
+  - name: "programacao"
+    label: "Programação Semanal"
+    label_singular: "Bloco de Programação"
+    folder: "src/content/programacao"
+    create: true
+    slug: "{{slug}}"
+    identifier_field: "category"
+    fields:
+      - { label: "Categoria", name: "category", widget: "string", hint: "Ex: Missas, Confissões, Grupos de Oração" }
+      - label: "Cor de destaque"
+        name: "accent"
+        widget: "select"
+        options:
+          - { label: "Azul (Shalom Blue)", value: "blue" }
+          - { label: "Laranja (Shalom Orange)", value: "orange" }
+        default: "blue"
+      - label: "Itens"
+        name: "items"
+        widget: "list"
+        summary: "{{fields.label}} — {{fields.value}}"
+        fields:
+          - { label: "Descrição", name: "label", widget: "string" }
+          - { label: "Horário", name: "value", widget: "string", required: false }
