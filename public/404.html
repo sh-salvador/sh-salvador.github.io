@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Redirecionando...</title>
+    <script>
+        // Guarda o caminho que o usuário tentou acessar (ex: /contato)
+        sessionStorage.setItem('redirectPath', window.location.pathname + window.location.search);
+        // Manda de volta para a raiz do site
+        window.location.replace('/');
+    </script>
+</head>
+
+</html>
