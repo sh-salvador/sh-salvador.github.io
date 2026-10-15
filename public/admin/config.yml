@@ -2,7 +2,9 @@
 
 backend:
   name: github
-  repo: sh-salvador/sistema
+  repo: sh-salvador/sh-salvador.github.io
+  branch: main
+  base_url: https://sveltia-cms-auth.apostolicasalvador.workers.dev/
 
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
@@ -17,12 +19,30 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Título", name: "title", widget: "string" }
-      - { label: "Data", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
-      - { label: "Horário", name: "time", widget: "string", hint: "Ex: 19h30, 08h às 17h" }
+      - {
+          label: "Data",
+          name: "date",
+          widget: "datetime",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+          format: "YYYY-MM-DD",
+        }
+      - {
+          label: "Horário",
+          name: "time",
+          widget: "string",
+          hint: "Ex: 19h30, 08h às 17h",
+        }
       - { label: "Local", name: "location", widget: "string" }
       - { label: "Imagem", name: "image", widget: "image", required: false }
       - { label: "Descrição", name: "description", widget: "text" }
-      - { label: "Link (opcional)", name: "href", widget: "string", required: false, default: "/programacao" }
+      - {
+          label: "Link (opcional)",
+          name: "href",
+          widget: "string",
+          required: false,
+          default: "/programacao",
+        }
 
   # ----- NOTÍCIAS -----
   - name: "noticias"
@@ -33,10 +53,23 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Título", name: "title", widget: "string" }
-      - { label: "Data", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+      - {
+          label: "Data",
+          name: "date",
+          widget: "datetime",
+          date_format: "YYYY-MM-DD",
+          time_format: false,
+          format: "YYYY-MM-DD",
+        }
       - { label: "Imagem", name: "image", widget: "image", required: false }
       - { label: "Descrição", name: "description", widget: "text" }
-      - { label: "Link (opcional)", name: "href", widget: "string", required: false, default: "/informativo" }
+      - {
+          label: "Link (opcional)",
+          name: "href",
+          widget: "string",
+          required: false,
+          default: "/informativo",
+        }
 
   # ----- PROGRAMAÇÃO SEMANAL -----
   - name: "programacao"
@@ -47,7 +80,12 @@ collections:
     slug: "{{slug}}"
     identifier_field: "category"
     fields:
-      - { label: "Categoria", name: "category", widget: "string", hint: "Ex: Missas, Confissões, Grupos de Oração" }
+      - {
+          label: "Categoria",
+          name: "category",
+          widget: "string",
+          hint: "Ex: Missas, Confissões, Grupos de Oração",
+        }
       - label: "Cor de destaque"
         name: "accent"
         widget: "select"
@@ -61,4 +99,9 @@ collections:
         summary: "{{fields.label}} — {{fields.value}}"
         fields:
           - { label: "Descrição", name: "label", widget: "string" }
-          - { label: "Horário", name: "value", widget: "string", required: false }
+          - {
+              label: "Horário",
+              name: "value",
+              widget: "string",
+              required: false,
+            }
