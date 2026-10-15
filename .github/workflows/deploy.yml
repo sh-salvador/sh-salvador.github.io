@@ -5,6 +5,7 @@ on:
   push:
     branches: ['main'] # Se seu branch principal for master, altere para 'master'
   workflow_dispatch:
+    
 
 permissions:
   contents: read
